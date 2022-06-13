@@ -2,8 +2,10 @@
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
   id BIGINT(20) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT
-  , username     VARCHAR(60) COMMENT 'ユーザー名'
-  , password     VARCHAR(31) COMMENT 'パスワード'
+  , username     VARCHAR(63)  COMMENT 'ユーザー名'
+  , password     VARCHAR(60)  COMMENT 'パスワード'
+
+  , email        VARCHAR(255) COMMENT 'メールアドレス'
 
   , remarks    TEXT COMMENT '備考等'
   , deleted_at DATETIME(6)
