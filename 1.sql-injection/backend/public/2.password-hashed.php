@@ -7,15 +7,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         $pdo = new PDO($dsn, 'username', 'password');
-        $sql = "SELECT id, password FROM users WHERE username = '$input_username' AND password = '$input_password'";
+        $sql = "SELECT id, password FROM users WHERE username = '$input_username'";
         $user = $pdo->query($sql)->fetch();
         echo "実行SQL: `$sql` <br>";
-        if (password_hash($input_password, $user['password'])) {
-            echo '結果: OK';
-        } else {
-            echo '結果: NG';
+        if (!$user) {
+            echo '結果: NG ユーザーが存在しません';
+            die();
         }
-        die();
+        if (password_verify($input_password, $user['password'])) {
+            echo '結果: OK';
+            die();
+        } else {
+            echo '結果: NG 認証エラー';
+            die();
+        }
     } catch (PDOException $e) {
         echo('Error:'.$e->getMessage()); die();
     }
