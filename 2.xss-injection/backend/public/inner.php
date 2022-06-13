@@ -48,7 +48,7 @@ try {
 <html>
     <body>
         <div>
-            <h2>新規投稿</h2>
+            <h2>新規投稿 as user_id: <?= $user_id ?></h2>
             <form action="" method="POST">
                 <label>内容</label>
                 <input type="text" name="content">
