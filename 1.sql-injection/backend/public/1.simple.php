@@ -8,8 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $pdo = new PDO($dsn, 'username', 'password');
         $sql = "SELECT id, password FROM users WHERE username = '$input_username' AND password = '$input_password'";
-        $user = $pdo->query($sql)->fetch();
         echo "実行SQL: `$sql` <br>";
+        $user = $pdo->query($sql)->fetch();
         if (!!$user) {
             echo '結果: OK';
         } else {
