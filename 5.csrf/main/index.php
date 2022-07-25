@@ -61,7 +61,7 @@ $posts = getPosts($pdo);
         <?php foreach ($posts as $post): ?>
             <hr>
             <div>
-            <p><?= $post['message'] ?> - by `<?= $username ?>`</p>
+            <p><?= $post['message'] ?> - by `<?= $post['username'] ?>`</p>
             </div>
         <?php endforeach; ?>
     </body>

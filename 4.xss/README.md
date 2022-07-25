@@ -1,4 +1,4 @@
-# SQL Injection
+# XSS
 
 # Environment
 
@@ -10,13 +10,13 @@ Debian 11
 
 ```bash
 bash init.sh
-php -S localhost:3000
+php -S localhost:3000 -t main
 ```
 
 別のターミナル上で攻撃用サーバーを建てる
 
 ```bash
-php -S localhost:3001
+php -S localhost:3001 -t attack
 ```
 
 

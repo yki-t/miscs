@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('location: /index.php');
     die();
 } else {
-    if (!$_SESSION['user_id']) {
+    if (isset($_SESSION['user_id']) && !$_SESSION['user_id']) {
         unset($_SESSION['user']);
         @session_destroy();
     }
