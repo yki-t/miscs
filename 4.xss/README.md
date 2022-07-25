@@ -52,3 +52,21 @@ localhost:3001 側のサーバー にcookie情報のログが出力されるこ�
 
 cookieが手に入ったのでuser01になりすましてログインできる
 
+# Fix
+
+出力時に適切にエスケープする
+
+修正前)
+
+```php
+<?php
+<p><?= $post['message'] ?> - by `<?= $username ?>`</p>
+```
+
+修正後)
+
+```php
+<?php
+<p><?= htmlspecialchars($post['message']) ?> - by `<?= htmlspecialchars($username) ?>`</p>
+```
+
